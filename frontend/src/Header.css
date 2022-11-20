@@ -1,0 +1,24 @@
+.Header-body{
+    background-color:  rgb(92, 92, 100);
+
+}
+.Header-cabeza{
+    align-items: center ;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+svg{
+    padding-top: 15px;
+}
+#HeaderBuscador{
+    width: 600px;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+.Header-botones{
+    margin: 5px;
+    border-radius: 15px;
+}
