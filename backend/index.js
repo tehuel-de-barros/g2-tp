@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import cors from 'cors'
 
 const PORT = process.env.PORT        || 8000;
 const DB   = process.env.MONGODB_URI || 'mongodb+srv://User:admin@cluster0.djqnf9d.mongodb.net/?retryWrites=true&w=majority';
@@ -17,7 +18,7 @@ mongoose.connect(DB)
 
 // el server escucha todo
 
-
+app.use(cors());
 import router from './routes.js';
 app.use('/api', router);
 app.listen(PORT, () => { console.log(`Server listening on port ${PORT}`);});

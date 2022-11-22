@@ -24,6 +24,7 @@ const createProd = (req, res) => {
   const prod = new Prod({ img, name, description, price });
   console.log(prod);
   prod.save((err, prod) => {
+    if(err) console.log('hay error');
     res.status(201).json(prod);
   });
 };

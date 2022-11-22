@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Component, useState } from 'react';
 import axios from 'axios'; 
 
 
@@ -10,23 +10,26 @@ const Form = () => {
         img: '',
         description: ''
     });
-/* 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        axios.post('localhost:8000/api/Prod', prod)
-    }
 
-    axios.get('localhost:8000/api/Prod')
-        .then(({data})) */
+const handleSubmit = (e) => { 
+    e.preventDefault();
+    const fromData = Object.fromEntries(new FormData(e.target)); 
+    console.log(fromData);
+
+    axios.post('http://localhost:8000/api/Prod', fromData)
+}
+
+
+
     return(
-        <form /* onSubmit={handleSubmit} */>       
+        <form onSubmit={handleSubmit}>
             <div className="formulario">
                 <h4>Crear Producto</h4>
-                <input className="info" /* onChange={} */>   </input>
-                <input className="info" required type="" name="" id="" placeholder="Precio"></input>
-                <input className="info" required type="" name="" id="" placeholder="Ingrese imagenes"></input>
-                <input className="info" required type="" name="" id="" placeholder="Ingrese la descripcion del producto"></input>
-                <input className="botons" required type="submit" value="Crear"></input>
+                <input className="info" type="text" name="name" id="name"  placeholder="Nombre del producto"></input>
+                <input className="info" type="number" name="price" id="precio" placeholder="Precio"></input>
+                <input className="info" type="" name="img" id="img" placeholder="Ingrese imagenes"></input>
+                <input className="info" type="" name="description" id="description" placeholder="Ingrese la descripcion del producto"></input>
+                <input className="botons" type="submit" value="Crear"></input>
             </div>
         </form>
     );
