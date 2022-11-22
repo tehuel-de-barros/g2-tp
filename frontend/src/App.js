@@ -17,14 +17,18 @@ const App = () => {
   
 
   return (
-    <div>
+    <div className="prod">
       {prod.map(prod => { 
-      return (
-      <div key={prod._id}>
-        <p className="hola">{prod.name}</p>
-      </div>
-    );
-  })}
+        return (
+          <div className="" key={prod._id}>
+            <div className="">
+              <img className="" src={prod.img}></img>
+              <p className="">{prod.name}</p>
+              <h2>{prod.price}</h2>
+            </div>
+          </div>
+         );
+      })}
     </div>
   );
 }
