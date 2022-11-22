@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
     
-const Form = () => { 
+const Form = ({setter}) => { 
     const [prod, setProd] = useState({
         name: '',
         price: '',
@@ -17,6 +17,8 @@ const handleSubmit = (e) => {
     console.log(fromData);
 
     axios.post('http://localhost:8000/api/Prod', fromData)
+    .then(res =>setter(e => [...e, res.data]))
+  
 }
 
 
@@ -27,7 +29,7 @@ const handleSubmit = (e) => {
                 <h4>Crear Producto</h4>
                 <input className="info" type="text" name="name" id="name"  placeholder="Nombre del producto"></input>
                 <input className="info" type="number" name="price" id="precio" placeholder="Precio"></input>
-                <input className="info" type="" name="img" id="img" placeholder="Ingrese imagenes"></input>
+                <input className="info" type="" name="img" id="img" placeholder="URL de la imagen"></input>
                 <input className="info" type="" name="description" id="description" placeholder="Ingrese la descripcion del producto"></input>
                 <input className="botons" type="submit" value="Crear"></input>
             </div>
