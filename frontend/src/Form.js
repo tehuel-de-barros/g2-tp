@@ -1,9 +1,9 @@
 import { Component, useState } from 'react';
-import axios from 'axios'; 
+import axios from 'axios';
 
 
-    
-const Form = ({setter}) => { 
+
+const Form = ({setter}) => {
     const [prod, setProd] = useState({
         name: '',
         price: '',
@@ -11,14 +11,14 @@ const Form = ({setter}) => {
         description: ''
     });
 
-const handleSubmit = (e) => { 
+const handleSubmit = (e) => {
     e.preventDefault();
-    const fromData = Object.fromEntries(new FormData(e.target)); 
+    const fromData = Object.fromEntries(new FormData(e.target));
     console.log(fromData);
 
-    axios.post('http://localhost:8000/api/Prod', fromData)
+    axios.post('/api/Prod', fromData)
     .then(res =>setter(e => [...e, res.data]))
-  
+
 }
 
 
