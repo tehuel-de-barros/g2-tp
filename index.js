@@ -9,7 +9,8 @@ const DB   = process.env.MONGODB_URI || 'mongodb+srv://User:admin@cluster0.djqnf
 
 const app = express();
 app.use(bodyParser.json())
-app.use(morgan('dev'));   
+app.use(express.static('public'))
+app.use(morgan('dev'));
 mongoose.connect(DB)
       .then(() => console.log("Todo OK"))
       .catch(err => console.log(err));
