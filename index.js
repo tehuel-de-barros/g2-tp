@@ -5,7 +5,8 @@ import bodyParser from 'body-parser';
 import cors from 'cors'
 
 const PORT = process.env.PORT        || 8000;
-const DB   = process.env.MONGODB_URI || 'mongodb+srv://User:admin@cluster0.djqnf9d.mongodb.net/?retryWrites=true&w=majority';
+// const DB   = process.env.MONGODB_URI || 'mongodb+srv://User:admin@cluster0.djqnf9d.mongodb.net/?retryWrites=true&w=majority';
+const DB   = process.env.MONGODB_URI || 'mongodb://127.0.0.1/tehuel';
 
 const app = express();
 app.use(bodyParser.json())
