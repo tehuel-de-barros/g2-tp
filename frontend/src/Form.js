@@ -17,7 +17,7 @@ const handleSubmit = (e) => {
     console.log(fromData);
 
     axios.post('/api/Prod', fromData)
-    .then(res =>setter(e => [...e, res.data]))
+    .then(res =>{setter(e => [...e, res.data])})
 
 }
 
